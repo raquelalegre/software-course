@@ -1,0 +1,59 @@
+EXERCISE 1
+----------
+
+In this exercise, you will just create a simple script in a file called "0_hello_world.sh". Shell scripts have the ".sh" extension by convention, but your scripts will work anyway if you use another one or even none at all.
+
+This is what you can do:
+
+1. Create a new file
+touch 0_hello_world.sh
+
+2. Open it for edition. Kate is a nice text editor, for instance:
+kate 0_hello_world.sh &
+
+Note the & will open Kate in a new window, but will let you use your shell at the same time. If you don't include the &, you will have to open a new shell or close Kate in order to interact with the command line.
+
+3. Write the contents of the script. In this case we'll just print out a text message in the screen:
+#!/bin/bash
+# Print out a message in the shell
+echo "Hello World!"
+
+4. Save the script and try to execute it:
+./0_hello_world.sh
+
+You have surely got this message:
+bash: ./0_hello_world.sh: Permission denied
+
+This means you have no permissions to execute the script yet!
+
+5. Check current file permissions
+ls -l 0_hello_world.sh
+
+Look at the beginning of the output of this command: 
+-rw-rw-r-- 
+
+The r's and w's mean that all users have read permissions, and some of the have write permissions. To give execution permissions, you could do this:
+chmod a+x 0_hello_world.sh
+
+Check the permissions again and you'll see this:
+-rwxrwxr-x
+
+Those x's mean everyone has execution permisions for this script.
+
+6. Execute the script
+./0_hello_world.sh
+
+You should see a "Hello World!" message printed out in the shell.
+
+
+
+
+ 
+
+
+
+
+
+
+
+
