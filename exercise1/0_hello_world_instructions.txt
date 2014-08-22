@@ -44,7 +44,7 @@ Those x's mean everyone has execution permisions for this script now.
 ./0_hello_world.sh
 
 You should see a "Hello World!" message printed out in the shell.
-Notice the "./" at the begining that indicates the shell the relative path to the script. This is not entirely necesary, but a good practise. If you happen to name your script "cd", for example, and you just type "cd" to execute it, the shell will choose to execute the well known command "cd" instead of the script you have created. This may seem a silly example, but disasterous events can happen if you run the script you don't mean to run.
+Notice the "./" at the begining that indicates the shell the relative path to the script. This is not entirely necesary if you are in the same folder as your script is when running it, but a good practise. If you happen to name your script "cd", for example, and you just type "cd" to execute it, the shell will choose to execute the well known command "cd" instead of the script you have created. This may seem a silly example, but disasterous events can happen if you run the script you don't mean to run.
 
 
 One step further:
