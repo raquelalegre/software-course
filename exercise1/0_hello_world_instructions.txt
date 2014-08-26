@@ -8,23 +8,31 @@ This is what you can do:
 1. Create a new file
 touch 0_hello_world.sh
 
+
 2. Open it for edition. Kate is a nice text editor, for instance:
 kate 0_hello_world.sh &
 
 Note the & will open Kate in a new window, but will let you use your shell at the same time. If you don't include the &, you will have to open a new shell or close Kate in order to interact with the command line.
+
 
 3. Write the contents of the script. In this case we'll just print out a text message in the screen, so this should be the content of the script file:
 #!/bin/bash
 # Print out a message in the shell
 echo "Hello World!"
 
-4. Save the script and try to execute it:
+The first line "#!/bin/bash" indicated the shell where is the interpreter that is needed to run this script. In this case it is in /bin/bash, but if this were a Perl script, for example, the first line should read "#!/bin/perl", given the Perl interpreter lives in /bin/perl.
+The following line is a comment. Lines starting with "#" will be ignored by the interpreter.
+The last line prints out the "Hello World!" message. In Bash, the instruction to print out something in the shell is "echo"
+
+
+4. Save the script and try to execute it by typing the relative path to the script:
 ./0_hello_world.sh
 
 You have surely got this message:
 bash: ./0_hello_world.sh: Permission denied
 
 This means you have no permissions to execute the script yet!
+
 
 5. Check current file permissions
 ls -l 0_hello_world.sh
@@ -39,6 +47,7 @@ Check the permissions again and you'll see this:
 -rwxrwxr-x
 
 Those x's mean everyone has execution permisions for this script now.
+
 
 6. Execute the script
 ./0_hello_world.sh
