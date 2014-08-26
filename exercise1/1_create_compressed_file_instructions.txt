@@ -1,5 +1,5 @@
-EXERCISE 1
-----------
+EXERCISE 1: IF-THE-ELSE and $? VARIABLE
+---------------------------------------
 
 In this exercise, you will create a compressed file containing a few sample images to send to another colleague. 
 The sample images and documents are in the resources folder. 
