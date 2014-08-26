@@ -18,20 +18,26 @@ man zip
 man tar
 Exit the help by pressing "q".
 
+
 2. Start editing your script: 
 cd..
 kate 1_create_compressed_file.sh &
 
+
 3. Content shoud be something like this to start with:
 #!/bin/bash
 # Print out a message in the shell
+echo "                                          "
 echo "Creating compressed file EO_images.zip ..."
+echo "                                          "
+
 
 4. Add the command to create this compressed file:
 # Create compressed file
-zip -v  EO_images.zip resources/*.jpg
+zip EO_images.zip resources/*.jpg
 
 Notice the images are not in the same folder as the script is, so you need to include the relative path to them for the script to find them.
+
 
 5. Everytime a command is executed, it returns a code number. This is a very useful feature for programmers to check if an operation was succesful or not)  
 This code number is stored in a Bash variable. Variables in Bash start always with a "$" sign followed by the name of the variable. For example: $PATH, $x, etc.
@@ -58,6 +64,7 @@ echo $?
 
 In this case we are trying to access a folder that doesn't exist, so the command won't be succesful, and thus the $? will contain something other than 0.
 
+
 6. So coming back to the script, let's check the output of the zip command, and print a message to inform the user if it has been succesful or not:
 # Check if the operation went well and print an output message with some decorations so that it's easier to notice
 if [ $? -ne 0 ]; then
@@ -81,13 +88,20 @@ The "-ne" bit is notation used in Bash for "Not Equal". Unfortunatelly, Bash has
 
 Notice how the Bash if-then-else notacion goes. It has a ";" right after the condition, and the way of indicating when the sentence finish is by writting "if" backwards: "fi".
 
-7. Save the script, change permissions and run, as in the previous exercise. Check how you get different outputs by running the command from different folders. Where do you have to do not to get an unsuccesful message?
+7. Save the script, change permissions and run, as in the previous exercise. Check how you get different outputs by running the command from different folders. Where do you have to go not to get an unsuccesful message? 
+Try, for example:
+./1_create_compressed_file.sh
+cd ..
+./exercise1/1_create_compressed_file.sh 
 
-
+How would you make the script work from anywhere? 
+Solution: using an absolute path in the command line instead of a relative one!
 
 
 One step further:
 unzip, tar x
+environmental variables
+add script directory to $PATH
  
 
 
