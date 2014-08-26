@@ -4,11 +4,12 @@ EXERCISE 1
 In this exercise, you will create a compressed file containing a few sample images to send to another colleague. 
 The sample images and documents are in the resources folder. 
 
-1. Have a play with the zip and tar command, for example:
+1. Have a play with the zip and tar command, in your shell for example:
 cd resources
 zip -v   EO_images.zip *.jpg
 tar -cfv EO_images.tar *.jpg
-These will create a compressed file containing the images in the resources folder. Check them out by doing:
+
+These will create two compressed files containing the images in the resources folder. Check them out by doing:
 ls -lh
 Notice the size in human readable format? One of the compressing methods has created a more compressed output. Which is it?
 
@@ -32,10 +33,61 @@ zip -v  EO_images.zip resources/*.jpg
 
 Notice the images are not in the same folder as the script is, so you need to include the relative path to them for the script to find them.
 
+5. Everytime a command is executed, it returns a code number. This is a very useful feature for programmers to check if an operation was succesful or not)  
+This code number is stored in a Bash variable. Variables in Bash start always with a "$" sign followed by the name of the variable. For example: $PATH, $x, etc.
+The variable storing the output code of the instruction that has been just executed is "$?". You can print out the value of variable with the instruction "echo". 
+Go to the shell and type these:
+echo $PATH
+echo $USER
+echo $?
+
+The first one is an environmental variable Unix systems use to locate executable programs. It should be a long list of paths.
+The second will return your username.
+The latest will print the code we were talking about. It should be 0, which means the latest executed command (this is "echo $USER") has gone well.
+
+Try now:
+ls ~/
+echo $?
+
+The first line will print out the content of your home directory.
+The second will again return 0, because everything went well with the previous command "ls ~/".
+
+Now try:
+ls ~/madeup_folder_name
+echo $?
+
+In this case we are trying to access a folder that doesn't exist, so the command won't be succesful, and thus the $? will contain something other than 0.
+
+6. So coming back to the script, let's check the output of the zip command, and print a message to inform the user if it has been succesful or not:
+# Check if the operation went well and print an output message with some decorations so that it's easier to notice
+if [ $? -ne 0 ]; then
+        echo "                             "
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo "!! Oops! Something went wrong :( !"
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+else
+        echo "                             "
+        echo "@@@@@@@@@@@"
+        echo "@ Done :) @"
+        echo "@@@@@@@@@@@"
+
+fi
+
+You will need an if-then-else sentence, which works as in any other programming language, except for the Bash syntax.
+The sentence is evaluating the content between [] (notice the spaces after "[" and before "]", they are needed), in this case:
+$? -nq 0
+This means we are checking if the content of $? is not equal to 0, meaning "if the command was not succesful".
+The "-ne" bit is notation used in Bash for "Not Equal". Unfortunatelly, Bash has a rather tricky way of comparing things, depending on which type of variable they are (string, char, number...). No need to learn them all, but just be aware of this, and Google!
+
+Notice how the Bash if-then-else notacion goes. It has a ";" right after the condition, and the way of indicating when the sentence finish is by writting "if" backwards: "fi".
+
+7. Save the script, change permissions and run, as in the previous exercise. Check how you get different outputs by running the command from different folders. Where do you have to do not to get an unsuccesful message?
+
+
+
 
 One step further:
-alias ll?
-unzip, tar x?
+unzip, tar x
  
 
 
