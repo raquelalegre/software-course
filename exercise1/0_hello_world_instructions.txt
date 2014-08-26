@@ -21,8 +21,8 @@ Note the & will open Kate in a new window, but will let you use your shell at th
 echo "Hello World!"
 
 The first line "#!/bin/bash" indicates the shell where the interpreter that is needed to run this script is. In this case it is in /bin/bash, but if this were a Perl script, for example, the first line should read "#!/bin/perl", given the Perl interpreter lives in /bin/perl.
-The following line is a comment. Lines starting with "#" will be ignored by the interpreter.
-The last line prints out the "Hello World!" message. In Bash, the instruction to print out something in the shell is "echo"
+The following line is a comment. Lines starting with "#" will be ignored by the interpreter. Except for "#!", that is!
+The last line prints out the "Hello World!" message. In Bash, the instruction to print out something in the shell is "echo".
 
 
 4. Save the script and try to execute it by typing the relative path to the script:
