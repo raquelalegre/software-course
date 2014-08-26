@@ -38,7 +38,7 @@ chmod a+x 0_hello_world.sh
 Check the permissions again and you'll see this:
 -rwxrwxr-x
 
-Those x's mean everyone has execution permisions for this script now.  
+Those x's mean everyone has execution permisions for this script now.
 
 6. Execute the script
 ./0_hello_world.sh
@@ -48,11 +48,11 @@ Notice the "./" at the begining that indicates the shell the relative path to th
 
 
 One step further:
-More on security permisions and chmod
-Set up the PATH variable
-bash_profile
-history
-Ctrl+R
+More on security permisions and chmod (me/group/all, chmod 777, etc.)
+Set up the PATH variable (so that the script can be executed from anywhere, no need of relative path)
+bash_profile (set up aliases and PATH)
+history (Ctrl+R, bash_history, change max n lines offset)
+
 
  
 
