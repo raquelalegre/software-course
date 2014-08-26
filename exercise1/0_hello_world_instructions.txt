@@ -1,5 +1,5 @@
-EXERCISE 1
-----------
+EXERCISE 0: HELLO BASH WORLD
+----------------------------
 
 In this exercise, you will just create a simple script in a file called "0_hello_world.sh". Shell scripts have the ".sh" extension by convention, but your scripts will work anyway if you use another one or even none at all.
 
