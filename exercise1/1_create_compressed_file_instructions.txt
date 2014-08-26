@@ -1,0 +1,47 @@
+EXERCISE 1
+----------
+
+In this exercise, you will create a compressed file containing a few sample images to send to another colleague. 
+The sample images and documents are in the resources folder. 
+
+1. Have a play with the zip and tar command, for example:
+cd resources
+zip -v   EO_images.zip *.jpg
+tar -cfv EO_images.tar *.jpg
+These will create a compressed file containing the images in the resources folder. Check them out by doing:
+ls -lh
+Notice the size in human readable format? One of the compressing methods has created a more compressed output. Which is it?
+
+Know more about these commands by running:
+man zip
+man tar
+Exit the help by pressing "q".
+
+2. Start editing your script: 
+cd..
+kate 1_create_compressed_file.sh &
+
+3. Content shoud be something like this to start with:
+#!/bin/bash
+# Print out a message in the shell
+echo "Creating compressed file EO_images.zip ..."
+
+4. Add the command to create this compressed file:
+# Create compressed file
+zip -v  EO_images.zip resources/*.jpg
+
+Notice the images are not in the same folder as the script is, so you need to include the relative path to them for the script to find them.
+
+
+One step further:
+alias ll?
+unzip, tar x?
+ 
+
+
+
+
+
+
+
+
