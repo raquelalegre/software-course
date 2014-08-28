@@ -95,7 +95,7 @@ cd ..
 ./exercise1/1_create_compressed_file.sh 
 
 How would you make the script work from anywhere? 
-Solution: using an absolute path for the resources folder (i.e.: ~/software-course/exercise1/resources/*.jpg instead of ./resources/*.jpg) in the command line instead of a relative one!
+Solution: using an absolute path for the resources folder (i.e.: ~/software-course/exercise1/resources/*.jpg instead of ./resources/*.jpg) in the zip command sentence instead of a relative one!
 
 
 One step further:
