@@ -1,0 +1,101 @@
+USEFUL BASH COMMANDS
+--------------------
+
+A Bash script is nothing more than a sequence of Unix commands. You can normally just get the contents of a basch script, and copy-paste them directly in the shell.
+Putting all those commands together and saving them in a script file is just a tidy way of doing things. You can keep it for later, reuse it, share it, etc.
+To be able to make a nice script, you will first need to know a few commands. Here are some:
+
+
+Move around your file system
+----------------------------
+
+A path is the unique location where a file or folder is. For example: /home/your_username is the path to your desktop.
+
+To go to a path you need the "cd" command. For example:
+cd /home
+cd /home/your_username
+cd ../other_username/software-course/exercise1/resources
+cd ..
+cd .
+cd
+cd ~/
+cd -
+
+Paths can be absolute or relative. 
+
+An absolute path is the location of a file or folder starting always in the root directory: "/". For example:
+/home/your_username/software-course
+
+A relative path is the location of a file or folder from where you are now, your current working path. For example, if you are in:
+/home/your_username/software-course/exercise1
+
+and want to go to the exercise2 folder, you could do:
+cd ../exercise2
+
+which is equivalent to going to this absolute path:
+cd /home/your_username/software-course/exercise2
+
+"../" and ".." mean parent directory. So in this last example, you go to parent directory, and then exercise2. 
+
+"./" and "." mean current directory. You wouldn't normally want to cd there, because you are already there (duh), but you will want to use it for commands other than "cd".
+
+You could also do:
+cd -
+
+This means "take me back to the directory I was just before". This is the equivalent to the backwards arrow in a web browser. It's really useful when you didn't remember where you were before or it's a really long path to type and you are feeling rather lazy. Cons: it only goes back one step, it doesn't have a big memory.
+
+Another useful command is "pwd". It stands for "print working directory". It will return the absolute path to where you are and it's a very handy command when you are feeling lost. 
+
+"~/" represents your home directory. Notice the two following commands do the same thing:
+cd
+cd ~/
+
+You can check how the result is the same with "pwd" after each command.
+
+Some locations of folders and files you'll know by heart, but it's likely you won't know your entire file system, so you'll need commands that show you what options you have.
+The most used command for this purpose is "ls".
+If you type it in you current folder, it'll list all the files and folders in it.
+You can also do "ls some_path" and see the list of folders and files in a different place. For example:
+ls /bin
+
+Unix commands accept arguments you can pass. "ls" is no exception. To know all options you have with a command, you can use "man":
+man ls
+(Exit this help by typing "q")
+
+Try now:
+ls -ltrah ~/
+
+Check in the man output what each modifier is for and try others you like.
+
+Another useful command to know your options is "tree". Let's go to our home directory and see what's in there:
+cd ~/
+tree
+
+Note that the command tree might not have been installed yet in you OS and you'll need to do this:
+sudo apt-get install tree
+
+This is a rather advanced command for installing a new program in your system. You might need an admin password and help from someone else in the course, but the "tree" command is worth the effort.
+
+
+
+
+Text or data files
+------------------
+
+There are serveral useful commands for working with text files. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
