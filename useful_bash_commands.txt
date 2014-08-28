@@ -11,7 +11,7 @@ Move around your file system
 
 A path is the unique location where a file or folder is. For example: /home/your_username is the path to your desktop.
 
-To go to a path you need the "cd" command. For example:
+To go to a path you need the "cd" command, which stands for "change directory". For example:
 cd /home
 cd /home/your_username
 cd ../other_username/software-course/exercise1/resources
