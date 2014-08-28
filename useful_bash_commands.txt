@@ -182,18 +182,46 @@ more
 less
 sort
 wc
-
+awk
+sed
+cut
 
 Standard Input, Standard Output and Error Output
 ------------------------------------------------
+
+
 
 
 Redirecting
 -----------
 
 
+
+
+
 Pipes
 -----
+
+The "|" symbol is used for "piping" unix commands.
+ 
+When bash examines the command line, it finds the vertical bar character | that separates the two commands. For example:
+ls | grep "a"
+
+Bash and other shells run both commands, connecting the output of the first to the input of the second. 
+The ls program produces a list of files in the current directory, while the grep program reads the output of ls and prints only those lines containing the letter "a".
+
+The "find" and the "grep" commands can be very powerful together. You might want to have a look in all directories for a text file that contains a specific word. For example
+find . -name "*.txt" | xargs grep "some sentence"
+
+"find" will produce a list of results, and for each of them (xargs), the grep command will be executed looking at the content of the file for "some sentence".
+
+You might want to count the number of lines of each text file in your current folder and subfolders, and view that associated to each file:
+find . -name "*.txt" | xargs wc -l
+
+Or you might want to sort alphabetically the contents of a file:
+cat file.txt | sort 
+
+
 
 
 History and autocompletion
