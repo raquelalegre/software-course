@@ -36,10 +36,10 @@ echo "                                          "
 # Create compressed file
 zip EO_images.zip resources/*.jpg
 
-Notice the images are not in the same folder as the script is, so you need to include the relative path to them for the script to find them.
+Notice the images are not in the same folder as the script is, so you need to include the relative path from where the script is to the resources folder, so that the script can find them.
 
 
-5. Everytime a command is executed, it returns a code number. This is a very useful feature for programmers to check if an operation was succesful or not)  
+5. Everytime a command is executed, it returns a code number. This is a very useful feature for programmers to check if an operation was succesful or not.
 This code number is stored in a Bash variable. Variables in Bash start always with a "$" sign followed by the name of the variable. For example: $PATH, $x, etc.
 The variable storing the output code of the instruction that has been just executed is "$?". You can print out the value of variable with the instruction "echo". 
 Go to the shell and type these:
