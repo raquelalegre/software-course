@@ -184,6 +184,10 @@ sort
 wc
 
 
+Standard Input, Standard Output and Error Output
+------------------------------------------------
+
+
 Redirecting
 -----------
 
@@ -192,8 +196,8 @@ Pipes
 -----
 
 
-History
--------
+History and autocompletion
+--------------------------
 
 You can have a look at the latest commands you've used by just typing:
 history
@@ -214,7 +218,9 @@ It's a bit dangerous, you have to be really sure that won't produce any data los
 You can also re-run the latest command starting with letter c by typing:
 !c
 
+If you start writing a command or a path and then press the tab key, the shell will try to complete or give you suggestions of commands of paths starting with what you have written.
 
+Up and Down arow keys will also help navigate the command history buffer.
 
 
 
