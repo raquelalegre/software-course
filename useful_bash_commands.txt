@@ -50,7 +50,7 @@ Another useful command is "pwd". It stands for "print working directory". It wil
 cd
 cd ~/
 
-You can check how the result is the same with "pwd" after each command.
+You can check how the result is the same by executing "pwd" after each command.
 
 Some locations of folders and files you'll know by heart, but it's likely you won't know your entire file system, so you'll need commands that show you what options you have.
 The most used command for this purpose is "ls".
