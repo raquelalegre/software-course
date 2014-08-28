@@ -42,7 +42,7 @@ cd /home/your_username/software-course/exercise2
 You could also do:
 cd -
 
-This means "take me back to the directory I was just before". This is the equivalent to the backwards arrow in a web browser. It's really useful when you didn't remember where you were before or it's a really long path to type and you are feeling rather lazy. Cons: it only goes back one step, it doesn't have a big memory.
+This means "take me back to the directory I was just before". This is the equivalent to the backwards arrow in a web browser. It's really useful when you didn't remember where you were before or it's a really long path to type and you are feeling rather lazy. Cons: it only goes back one step, it doesn't have a big memory. This means if you type "cd -" twice, you will end up in the same place where you started.
 
 Another useful command is "pwd". It stands for "print working directory". It will return the absolute path to where you are and it's a very handy command when you are feeling lost. 
 
@@ -77,13 +77,142 @@ sudo apt-get install tree
 This is a rather advanced command for installing a new program in your system. You might need an admin password and help from someone else in the course, but the "tree" command is worth the effort.
 
 
+Edit your filesystem
+--------------------
+
+Have a quick look with man to the following useful commands and their arguments:
+mkdir
+rmdir
+rm 
+cp
+mv
+
+Try to do the following in a test folder:
+1.  Create a new folder named "test"
+2.  Go inside the folder
+3.  Create several new folders named "subfolder1", "subfolder2" and "subfolder3"
+4.  Go inside "subfolder1"
+5.  Create an empty file: touch "fileA"
+6.  Copy "fileA" to "subfolder2"
+7.  Rename "fileA" to "fileB"
+8.  Move "fileB" to "subfolder3"
+9.  Remove "fileA"
+10. Check the contents of all folders and remove the one/s empty
+11. Try to remove the whole "test" folder with the "rmdir" command. What happened? How would you remove it? (Hint: try both "man rm" and "man rmdir")
+12. Advanced: make this process into a script and run it.
+
+Solution:
+1.  mkdir test
+2.  cd test
+3.  mkdir subfolder1 subfolder2 subfolder3
+4.  cd subfolder1
+5.  touch fileA.test
+6.  cp fileA.test ../subfolder2
+7.  cd ../subfolder2
+    mv fileA.test fileB.test
+8.  mv fileB.test ../subfolder3
+9.  rm ../subfolder1/fileA.test 
+10. cd ..
+    tree
+    rmdir subfolder1 subfolder2 
+11. cd ..
+    rmdir test - won't work because it's not empty
+    rm -rf test
+12. touch script.sh
+    kate script.sh &
+    Copy and paste all the previous step
+    Save and close
+    Give execution permissions: chmod a+x script.sh
+    Run script: ./script.sh
 
 
-Text or data files
-------------------
+
+
+Text files
+----------
 
 There are serveral useful commands for working with text files. 
 
+"touch" creates an empty file. For example:
+touch my_file.txt
+
+Do "ls" and check this file has been correctly created.
+
+Open it for editting with a tool like kate:
+kate "my_file.txt" &
+
+Insert some random text:
+Hello, I'm a text file. 
+I contain really important data.
+
+Let's do this again:
+
+touch another_file.txt
+
+kate another_file.txt &
+
+Write some more random text:
+Hello, I'm another text file.
+I contain really unimportant data.
+
+Save and close the files. 
+
+"cat" prints out the contents of a text file. Try:
+cat my_file.txt
+
+or:
+cat *.txt
+
+This last one will print out the contents of all files with ".txt" extension.
+
+"grep" is a very powerful command for looking for specific content in a file. Try:
+grep "unimportant data" *
+
+It will come up with the relative path to the files in your working directory that contain the text "unimportant data". In this case it's only one: another_file.txt. 
+
+Try now:
+grep "important data" *
+
+How is the output different than the previous case?
+
+Have a look at what these other commands useful for working with text files:
+head
+tail
+more
+less
+sort
+wc
+
+
+Redirecting
+-----------
+
+
+Pipes
+-----
+
+
+History
+-------
+
+You can have a look at the latest commands you've used by just typing:
+history
+
+or just:
+h
+
+If you want to see everytime you have use the command "mkdir", you can do:
+history | grep mkdir
+
+If you press Ctrl and R, you can start typing a command you remember, and keep pressing Ctrl+R which will go backwards in your history showing all commands matching your input. It takes a while to get use to it, but you can't live without it afterwards.
+
+You can re-run the latest command executed by doing this:
+!!
+
+It's a bit dangerous, you have to be really sure that won't produce any data loss, etc.
+
+You can also re-run the latest command starting with letter c by typing:
+!c
 
 
 
