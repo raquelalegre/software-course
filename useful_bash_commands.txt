@@ -186,17 +186,61 @@ awk
 sed
 cut
 
-Standard Input, Standard Output and Error Output
-------------------------------------------------
 
 
+Standard Output and Standard Error
+--------------------------------------------------
+
+The shell uses what we call "streams" to manage execution outputs from commands or programs.
+To refer to these, we use numbers:
+1: Standard Output, or stdout. For example, when you execute "ls" and it comes up with a list of files and folders, that list is the Standard Output of the command.
+2: Standard Error (special kind of output), or stderr. These are outputs related to errors that occurr when executing a command. For example, if you execute "ls /unexistent folder", the output message stating there is not such a folder and thus ls can't be successfully execute, go to stderr.
 
 
-Redirecting
------------
+Redirecting Standard Output and Standard Error to log files
+-----------------------------------------------------------
+
+Normally both stdout and stderr are displayed in the shell, but it's handy to have a way to refer to them separately and have the possibility to redirect them somewhere else. 
+
+The most commom Bash notation for redirection of output is ">". 
+
+For example, try:
+ls ./
+
+See the output? Now try to redirect it to a file ./ls.stdout:
+ls ./ > ./ls.out
+
+You have not seen any outputs in the prompt this time, they should all be in the file ./ls.stdout. Check its contents with the "cat" command:
+cat ./ls.out
+
+See? Now let's try to cause an error in the ls command by giving it an unexistent folder:
+ls ./made_up_folder
+
+You should get an error message saying that folder doesn't exist. Try to redirect the output like before:
+ls ./made_up_folder > ./ls.err
+
+The behaviour this time is different, because when Bash sees ">" without spefying what stream we are talking about, it defaults to redirecting only stdout and doesn't include the error output. To speficy which stream/s you want to redirect, use the ID numbers they have (1 for stout and 2 for stderr). For example:
+ls ./made_up_folder 2>./ls.err
+
+Check the contents of the file now:
+cat ./ls.err
 
 
+Let's try something a bit more elaborate: loop recursively through all files and folders in our current directory (software-course) and print them out with the "cat" command. "cat" will throw an error when we pass a folder instead of a file. 
+Let's build the command. First, loop through all files and folders in current directory with the find command, which simplified syntax is:
+find [FOLDER] -name [REGEX] 
 
+In our case, current folder is "." and the REGEX is "*" meaning all files and folders under any name:
+find . -name "*"
+
+Now, for each of the outputs, run the "cat" command on them. For this we use pipes (next section), represented by "|". For example:
+find ~/ -name "" | xargs cat 
+
+This command will go through all the files in ~/ and try to cat them. This will work for all text files, but not for other things like executables or folder, thus an error message would be displayed.
+Let's save the contents of each file in an stdout.log and the error messages in stderr.log
+find ~/ -name "" | xargs cat  1>stdout.log 2>stderr.log
+
+There is a very good cheat sheet about redirection here: http://www.catonmat.net/download/bash-redirections-cheat-sheet.pdf
 
 
 Pipes
@@ -220,6 +264,27 @@ find . -name "*.txt" | xargs wc -l
 
 Or you might want to sort alphabetically the contents of a file:
 cat file.txt | sort 
+
+
+Variables
+---------
+
+
+
+
+Special Variables
+-----------------
+We've already discuss $?, but there are many other special variables Bash uses to manage it's execution environment.
+For example:
+$#
+$!
+$0
+$1, $2, $3...
+$PATH
+
+
+
+
 
 
 
