@@ -1,8 +1,10 @@
 USEFUL BASH COMMANDS
 --------------------
 
-A Bash script is nothing more than a sequence of Unix commands. You can normally just get the contents of a basch script, and copy-paste them directly in the shell.
-Putting all those commands together and saving them in a script file is just a tidy way of doing things. You can keep it for later, reuse it, share it, etc.
+A Bash script is nothing more than a sequence of Unix commands. You can normally just get the contents of a basch script, 
+and copy-paste them directly in the shell.
+Putting all those commands together and saving them in a script file is just a tidy way of doing things. You can keep it 
+for later, reuse it, share it, etc.
 To be able to make a nice script, you will first need to know a few commands. Here are some:
 
 
@@ -37,14 +39,19 @@ cd /home/your_username/software-course/exercise2
 
 "../" and ".." mean parent directory. So in this last example, you go to parent directory, and then exercise2. 
 
-"./" and "." mean current directory. You wouldn't normally want to cd there, because you are already there (duh), but you will want to use it for commands other than "cd".
+"./" and "." mean current directory. You wouldn't normally want to cd there, because you are already there (duh), but you 
+will want to use it for commands other than "cd".
 
 You could also do:
 cd -
 
-This means "take me back to the directory I was just before". This is the equivalent to the backwards arrow in a web browser. It's really useful when you didn't remember where you were before or it's a really long path to type and you are feeling rather lazy. Cons: it only goes back one step, it doesn't have a big memory. This means if you type "cd -" twice, you will end up in the same place where you started.
+This means "take me back to the directory I was just before". This is the equivalent to the backwards arrow in a web browser. 
+It's really useful when you didn't remember where you were before or it's a really long path to type and you are feeling 
+rather lazy. Cons: it only goes back one step, it doesn't have a big memory. This means if you type "cd -" twice, 
+you will end up in the same place where you started.
 
-Another useful command is "pwd". It stands for "print working directory". It will return the absolute path to where you are and it's a very handy command when you are feeling lost. 
+Another useful command is "pwd". It stands for "print working directory". It will return the absolute path to where you are 
+and it's a very handy command when you are feeling lost. 
 
 "~/" represents your home directory. Notice the two following commands do the same thing:
 cd
@@ -52,7 +59,8 @@ cd ~/
 
 You can check how the result is the same by executing "pwd" after each command.
 
-Some locations of folders and files you'll know by heart, but it's likely you won't know your entire file system, so you'll need commands that show you what options you have.
+Some locations of folders and files you'll know by heart, but it's likely you won't know your entire file system, so you'll 
+need commands that show you what options you have.
 The most used command for this purpose is "ls".
 If you type it in you current folder, it'll list all the files and folders in it.
 You can also do "ls some_path" and see the list of folders and files in a different place. For example:
@@ -67,14 +75,15 @@ ls -ltrah ~/
 
 Check in the man output what each modifier is for and try others you like.
 
-Another useful command to know your options is "tree". Let's go to our home directory and see what's in there:
+Another useful command to know is "tree". Let's go to our home directory and see what's in there:
 cd ~/
 tree
 
 Note that the command tree might not have been installed yet in you OS and you'll need to do this:
 sudo apt-get install tree
 
-This is a rather advanced command for installing a new program in your system. You might need an admin password and help from someone else in the course, but the "tree" command is worth the effort.
+This is a rather advanced command for installing a new program in your system. You might need an admin password and help 
+from someone else in the course, but the "tree" command is worth the effort.
 
 
 Edit your filesystem
@@ -98,7 +107,8 @@ Try to do the following in a test folder:
 8.  Move "fileB" to "subfolder3"
 9.  Remove "fileA"
 10. Check the contents of all folders and remove the one/s empty
-11. Try to remove the whole "test" folder with the "rmdir" command. What happened? How would you remove it? (Hint: try both "man rm" and "man rmdir")
+11. Try to remove the whole "test" folder with the "rmdir" command. What happened? How would you remove it? (Hint: try both "man 
+rm" and "man rmdir")
 12. Advanced: make this process into a script and run it.
 
 Solution:
@@ -168,7 +178,8 @@ This last one will print out the contents of all files with ".txt" extension.
 "grep" is a very powerful command for looking for specific content in a file. Try:
 grep "unimportant data" *
 
-It will come up with the relative path to the files in your working directory that contain the text "unimportant data". In this case it's only one: another_file.txt. 
+It will come up with the relative path to the files in your working directory that contain the text "unimportant data". 
+In this case it's only one: another_file.txt. 
 
 Try now:
 grep "important data" *
@@ -193,14 +204,18 @@ Standard Output and Standard Error
 
 The shell uses what we call "streams" to manage execution outputs from commands or programs.
 To refer to these, we use numbers:
-1: Standard Output, or stdout. For example, when you execute "ls" and it comes up with a list of files and folders, that list is the Standard Output of the command.
-2: Standard Error (special kind of output), or stderr. These are outputs related to errors that occurr when executing a command. For example, if you execute "ls /unexistent folder", the output message stating there is not such a folder and thus ls can't be successfully execute, go to stderr.
+1: Standard Output, or stdout. For example, when you execute "ls" and it comes up with a list of files and folders, 
+that list is the Standard Output of the command.
+2: Standard Error (special kind of output), or stderr. These are outputs related to errors that occurr when executing a 
+command. For example, if you execute "ls /unexistent folder", the output message stating there is not such a folder and 
+thus ls can't be successfully executed, go to stderr.
 
 
 Redirecting Standard Output and Standard Error to log files
 -----------------------------------------------------------
 
-Normally both stdout and stderr are displayed in the shell, but it's handy to have a way to refer to them separately and have the possibility to redirect them somewhere else. 
+Normally both stdout and stderr are displayed in the shell, but it's handy to have a way to refer to them separately and have 
+the possibility to redirect them somewhere else. 
 
 The most commom Bash notation for redirection of output is ">". 
 
@@ -210,7 +225,8 @@ ls ./
 See the output? Now try to redirect it to a file ./ls.stdout:
 ls ./ > ./ls.out
 
-You have not seen any outputs in the prompt this time, they should all be in the file ./ls.stdout. Check its contents with the "cat" command:
+You have not seen any outputs in the prompt this time, they should all be in the file ./ls.stdout. Check its contents with 
+the "cat" command:
 cat ./ls.out
 
 See? Now let's try to cause an error in the ls command by giving it an unexistent folder:
@@ -219,14 +235,17 @@ ls ./made_up_folder
 You should get an error message saying that folder doesn't exist. Try to redirect the output like before:
 ls ./made_up_folder > ./ls.err
 
-The behaviour this time is different, because when Bash sees ">" without spefying what stream we are talking about, it defaults to redirecting only stdout and doesn't include the error output. To speficy which stream/s you want to redirect, use the ID numbers they have (1 for stout and 2 for stderr). For example:
+The behaviour this time is different, because when Bash sees ">" without spefying what stream we are talking about, it defaults 
+to redirecting only stdout and doesn't include the error output. To speficy which stream/s you want to redirect, use the ID 
+numbers they have (1 for stout and 2 for stderr). For example:
 ls ./made_up_folder 2>./ls.err
 
 Check the contents of the file now:
 cat ./ls.err
 
 
-Let's try something a bit more elaborate: loop recursively through all files and folders in our current directory (software-course) and print them out with the "cat" command. "cat" will throw an error when we pass a folder instead of a file. 
+Let's try something a bit more elaborate: loop recursively through all files and folders in our current directory 
+(software-course) and print them out with the "cat" command. "cat" will throw an error when we pass a folder instead of a file. 
 Let's build the command. First, loop through all files and folders in current directory with the find command, which simplified syntax is:
 find [FOLDER] -name [REGEX] 
 
@@ -236,7 +255,8 @@ find . -name "*"
 Now, for each of the outputs, run the "cat" command on them. For this we use pipes (next section), represented by "|". For example:
 find ~/ -name "" | xargs cat 
 
-This command will go through all the files in ~/ and try to cat them. This will work for all text files, but not for other things like executables or folder, thus an error message would be displayed.
+This command will go through all the files in ~/ and try to cat them. This will work for all text files, but not for other 
+things like binaries or folders, thus an error message would be displayed.
 Let's save the contents of each file in an stdout.log and the error messages in stderr.log
 find ~/ -name "" | xargs cat  1>stdout.log 2>stderr.log
 
@@ -252,14 +272,18 @@ When bash examines the command line, it finds the vertical bar character | that 
 ls | grep "a"
 
 Bash and other shells run both commands, connecting the output of the first to the input of the second. 
-The ls program produces a list of files in the current directory, while the grep program reads the output of ls and prints only those lines containing the letter "a".
+The ls program produces a list of files in the current directory, while the grep program reads the output of ls and prints 
+only those lines containing the letter "a".
 
-The "find" and the "grep" commands can be very powerful together. You might want to have a look in all directories for a text file that contains a specific word. For example
+The "find" and the "grep" commands can be very powerful together. You might want to have a look in all directories for a text 
+file that contains a specific word. For example
 find . -name "*.txt" | xargs grep "some sentence"
 
-"find" will produce a list of results, and for each of them (xargs), the grep command will be executed looking at the content of the file for "some sentence".
+"find" will produce a list of results, and for each of them (xargs), the grep command will be executed looking at the content 
+of the file for "some sentence".
 
-You might want to count the number of lines of each text file in your current folder and subfolders, and view that associated to each file:
+You might want to count the number of lines of each text file in your current folder and subfolders, and view that associated 
+to each file:
 find . -name "*.txt" | xargs wc -l
 
 Or you might want to sort alphabetically the contents of a file:
@@ -301,7 +325,8 @@ h
 If you want to see everytime you have use the command "mkdir", you can do:
 history | grep mkdir
 
-If you press Ctrl and R, you can start typing a command you remember, and keep pressing Ctrl+R which will go backwards in your history showing all commands matching your input. It takes a while to get use to it, but you can't live without it afterwards.
+If you press Ctrl and R, you can start typing a command you remember, and keep pressing Ctrl+R which will go backwards in your 
+history showing all commands matching your input. It takes a while to get use to it, but you can't live without it afterwards.
 
 You can re-run the latest command executed by doing this:
 !!
@@ -311,7 +336,8 @@ It's a bit dangerous, you have to be really sure that won't produce any data los
 You can also re-run the latest command starting with letter c by typing:
 !c
 
-If you start writing a command or a path and then press the tab key, the shell will try to complete or give you suggestions of commands of paths starting with what you have written.
+If you start writing a command or a path and then press the tab key, the shell will try to complete or give you suggestions of 
+commands of paths starting with what you have written.
 
 Up and Down arow keys will also help navigate the command history buffer.
 
